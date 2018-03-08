@@ -33,5 +33,6 @@ create table ps.tSchool
 
 	constraint PK_PS_tSchool primary key(EntityId),
 	constraint CK_PS_tSchool_BirthDate check(BirthDate < getutcdate()),
-	constraint FK_PS_tSchool_TeacherId foreign key(TeacherId) references ps.tSchool(EntityId)
+	constraint FK_PS_tSchool_TeacherId foreign key(TeacherId) references ps.tSchool(EntityId),
+	constraint CK_PS_tSchool_Level check([Level] in ('CP', 'CE1', 'CE2', 'CM1', 'CM2'))
 );
